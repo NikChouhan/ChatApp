@@ -45,7 +45,7 @@ namespace ChatApp
                 {
                     byte[]? buffer = new byte[size];
 
-                    buffer = (byte[]) asyncResult.AsyncState;
+                    buffer = asyncResult.AsyncState as byte[];
 
                     ASCIIEncoding encoding = new ASCIIEncoding();
                     string receivedmessage = encoding.GetString(buffer);
@@ -59,7 +59,8 @@ namespace ChatApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(text: ex.Message, caption:"Error!", icon: MessageBoxIcon.Warning, buttons: MessageBoxButtons.OK);
+                
             }
         }
 
@@ -100,7 +101,7 @@ namespace ChatApp
 
             catch(Exception e4)
             {
-                MessageBox.Show(e4.Message);
+                MessageBox.Show(text: e4.Message, caption: "Error!", icon: MessageBoxIcon.Warning, buttons: MessageBoxButtons.OK);
             }
         }
 
@@ -122,7 +123,7 @@ namespace ChatApp
             }
             catch (Exception e2)
             {
-                MessageBox.Show(e2.Message);
+                MessageBox.Show(text: e2.Message, caption: "Error!", icon: MessageBoxIcon.Warning, buttons: MessageBoxButtons.OK);
             }
         }
 
